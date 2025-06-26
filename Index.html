@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Giriş Kayıt</title>
+</head>
+<body>
+    <main class="neumorphic-container"> 
+        <div id="girisFormu" class="neumorphic-card">
+            <h1>Giriş Yap</h1>
+            <input type="text" class="neumorphic neumorphic-input" placeholder="Kullanıcı Adı">
+            <input type="password" class="neumorphic neumorphic-input" placeholder="Şifre">
+            <button class="neumorphic neumorphic-button">Giriş Yap</button>
+            <p>Hesabın yok mu? <a href="#" id="kayitOlGecis">Kayıt Ol</a></p>
+        </div>
+
+        <div id="kayitFormu" class="neumorphic-card">
+            <h1>Kayıt Ol</h1>
+            <input type="text" class="neumorphic neumorphic-input" placeholder="Kullanıcı Adı">
+            <input type="email" class="neumorphic neumorphic-input" placeholder="E-posta">
+            <input type="password" class="neumorphic neumorphic-input" placeholder="Şifre">
+            <input type="password" class="neumorphic neumorphic-input" placeholder="Şifre Tekrar"> <button class="neumorphic neumorphic-button">Kayıt Ol</button>
+            <p>Zaten hesabın var mı? <a href="#" id="girisYapGecis">Giriş Yap</a></p>
+        </div>
+
+    </main>
+
+    <script>
+        // Gerekli HTML elemanlarını seçiyoruz
+const girisFormu = document.getElementById('girisFormu');
+const kayitFormu = document.getElementById('kayitFormu');
+const kayitOlGecisBtn = document.getElementById('kayitOlGecis');
+const girisYapGecisBtn = document.getElementById('girisYapGecis');
+
+// Kayıt Ol linkine tıklandığında
+kayitOlGecisBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // Varsayılan link davranışını engelle
+
+    // Giriş formunu gizle
+    girisFormu.style.opacity = '0';
+    girisFormu.style.pointerEvents = 'none'; // Üzerine tıklanamaz yap
+    girisFormu.style.transform = 'translate(-50%, -50%) scale(0.9) translateX(-50px)'; // Gizlerken sola kaydır ve küçült
+
+    // Kayıt formunu göster
+    kayitFormu.style.opacity = '1';
+    kayitFormu.style.pointerEvents = 'auto'; // Tıklanabilir yap
+    kayitFormu.style.transform = 'translate(-50%, -50%) scale(1) translateX(0)'; // Gösterirken ortaya getir
+});
+
+// Giriş Yap linkine tıklandığında
+girisYapGecisBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // Varsayılan link davranışını engelle
+
+    // Kayıt formunu gizle
+    kayitFormu.style.opacity = '0';
+    kayitFormu.style.pointerEvents = 'none';
+    kayitFormu.style.transform = 'translate(-50%, -50%) scale(0.9) translateX(50px)'; // Gizlerken sağa kaydır ve küçült
+
+    // Giriş formunu göster
+    girisFormu.style.opacity = '1';
+    girisFormu.style.pointerEvents = 'auto';
+    girisFormu.style.transform = 'translate(-50%, -50%) scale(1) translateX(0)'; // Gösterirken ortaya getir
+});
+
+// Sayfa yüklendiğinde ve ekran boyutu değiştiğinde formların başlangıç durumunu ayarla
+function formPozisyonuAyarla() {
+    // Başlangıçta giriş formunu göster, kayıt formunu gizle
+    girisFormu.style.transform = 'translate(-50%, -50%) scale(1) translateX(0)';
+    girisFormu.style.opacity = '1';
+    girisFormu.style.pointerEvents = 'auto';
+
+    kayitFormu.style.transform = 'translate(-50%, -50%) scale(0.9) translateX(50px)';
+    kayitFormu.style.opacity = '0';
+    kayitFormu.style.pointerEvents = 'none';
+}
+
+// Sayfa yüklendiğinde fonksiyonu çağır
+window.addEventListener('load', formPozisyonuAyarla);
+
+// Ekran boyutu değiştiğinde de pozisyonları sıfırla (eğer mobil ve masaüstü geçişleri varsa)
+window.addEventListener('resize', formPozisyonuAyarla);
+    </script>
+</body>
+</html>

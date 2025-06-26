@@ -1,0 +1,175 @@
+/* Genel Sayfa Ayarları */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0e5ec;
+    color: #333;
+    overflow: hidden; /* Animasyon sırasında kaydırma çubuklarını engelle */
+}
+
+/* Temel Neumorfik Stil (Kabartmalı görünüm) */
+.neumorphic {
+    border-radius: 20px;
+    background: #e0e5ec;
+    box-shadow:
+        9px 9px 18px #a7abad,
+        -9px -9px 18px #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Ana Kapsayıcı (Giriş veya Kayıt Formunu barındıracak tek kart) */
+.neumorphic-container {
+    position: relative;
+    width: 450px; /* Büyük Genişlik */
+    height: 650px; /* **Yüksekliği biraz daha artır** */
+    padding: 30px; /* İç boşluğu ayarla */
+    border-radius: 25px;
+    background: #e0e5ec;
+    box-shadow:
+        12px 12px 24px #565d61,
+        -12px -12px 24px #565d61;
+    overflow: hidden; /* Geçiş animasyonu için gerekli */
+    display: flex; /* İçindeki formları ortalamak için */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Her Bir Form Kartı (Giriş Yap ve Kayıt Ol kartları) */
+.neumorphic-card {
+    position: absolute; /* Kapsayıcı içinde tam ortala */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Tam ortala */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; yerine margin-bottom kullanarak daha fazla kontrol sağlayacağız. */
+    align-items: center;
+    width: 85%; /* Ana kapsayıcının %85'i kadar genişlik */
+    max-width: 380px; /* Maksimum genişlik */
+    opacity: 1; /* Başlangıçta görünür */
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Yaylı animasyon */
+    box-sizing: border-box; /* Padding'i genişliğin içine dahil et */
+
+    /* Neumorfik stilini buraya uyguluyoruz */
+    border-radius: 20px;
+    background: #e0e5ec;
+    box-shadow:
+        7px 7px 14px #565d61,
+        -7px -7px 14px #565d61;
+}
+
+/* Başlangıçta Kayıt Formunu Gizle */
+#kayitFormu {
+    opacity: 0; /* Saydam yap */
+    pointer-events: none; /* Üzerine tıklanamaz yap */
+    /* Biraz küçültülmüş ve hafifçe yanlamasına kaydırılmış başlangıç pozisyonu */
+    transform: translate(-50%, -50%) scale(0.9) translateX(50px);
+}
+
+.neumorphic-card h1 {
+    font-size: 2em;
+    margin-bottom: 25px; /* Başlık altındaki boşluğu **azalttık** */
+    color: #4b4b4b;
+}
+
+/* Giriş Alanları (Input) - Basık görünüm */
+.neumorphic-input {
+    width: calc(100% - 40px); /* Padding'i genişlikten çıkar */
+    padding: 18px 20px; /* Padding'i artır */
+    margin-bottom: 20px; /* **Inputlar arası boşluğu azalttık** */
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    border-radius: 12px;
+    background: #e0e5ec;
+    box-shadow:
+        inset 5px 5px 10px #a7abad,
+        inset -5px -5px 10px #ffffff;
+    color: #555;
+}
+
+.neumorphic-input::placeholder {
+    color: #999;
+}
+
+.neumorphic-input:focus {
+    box-shadow:
+        inset 4px 4px 8px #9da2a6,
+        inset -4px -4px 8px #f5ffff;
+}
+
+/* Buton Stili - Kabartmalı görünüm */
+.neumorphic-button {
+    width: calc(100% - 40px); /* Padding'i genişlikten çıkar */
+    padding: 18px 20px;
+    margin-top: 15px; /* Buton üstündeki boşluk */
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 18px;
+    background: #e0e5ec;
+    color: #4b4b4b;
+    box-shadow:
+        7px 7px 14px #a7abad,
+        -7px -7px 14px #ffffff;
+}
+
+.neumorphic-button:hover {
+    box-shadow:
+        4px 4px 8px #a7abad,
+        -4px -4px 8px #ffffff;
+}
+
+.neumorphic-button:active {
+    box-shadow:
+        inset 4px 4px 8px #a7abad,
+        inset -4px -4px 8px #ffffff;
+    transform: translateY(2px);
+}
+
+/* Geçiş Linkleri */
+.neumorphic-card p {
+    font-size: 1em;
+    color: #666;
+    margin-top: 25px; /* **Link üstündeki boşluğu azalttık** */
+    text-align: center;
+}
+
+.neumorphic-card p a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.neumorphic-card p a:hover {
+    color: #388E3C;
+}
+
+/* Küçük ekranlar için responsive ayar */
+@media (max-width: 600px) {
+    body {
+        min-height: auto;
+        padding: 20px 0;
+    }
+
+    .neumorphic-container {
+        width: 95%;
+        height: auto; /* Yüksekliği otomatik ayarla */
+        padding: 20px;
+    }
+
+    .neumorphic-card {
+        width: 90%;
+        max-width: none;
+        padding: 25px 20px;
+        transform: translate(-50%, -50%) !important; /* Mobil görünümde animasyon transformlarını sıfırla */
+    }
+}
