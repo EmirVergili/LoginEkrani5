@@ -15,10 +15,8 @@ body {
 
 /* Temel Neumorfik Stil (Kabartmalı görünüm) */
 .neumorphic {
-    border-radius: 20px;
-    /* Değişiklik Başlangıcı: Arkaplanı genel body ile uyumlu hale getir */
-    background: #e0e5ec; /* Genel neumorfik elemanlar için daha nötr bir zemin */
-    /* Değişiklik Sonu */
+    border-radius: 20px;    
+    background: #e0e5ec;    
     box-shadow:
         9px 9px 18px #a7abad, /* Daha doğal bir gölge */
         -9px -9px 18px #ffffff; /* Beyaz vurgu */
@@ -31,10 +29,8 @@ body {
     width: 450px; /* Büyük Genişlik */
     height: 650px; /* **Yüksekliği biraz daha artır** */
     padding: 30px; /* İç boşluğu ayarla */
-    border-radius: 25px;
-    /* Değişiklik Başlangıcı: Arkaplanı genel body ile uyumlu hale getir */
-    background: #e0e5ec; /* Neumorfik derinlik için nötr bir zemin rengi */
-    /* Değişiklik Sonu */
+    border-radius: 25px;    
+    background: #e0e5ec;     
     box-shadow:
         12px 12px 24px #7fadf1, /* Yeni palete uygun koyu gölge */
         -12px -12px 24px #a7abad; /* Yeni palete uygun açık gölge */
