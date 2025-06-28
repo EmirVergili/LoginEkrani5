@@ -6,17 +6,15 @@ body {
     min-height: 100vh;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Değişiklik Başlangıcı: Arkaplanı belirtilen yeni degrade renkler */
-    background: linear-gradient(135deg, #7fadf1, #a0a7ad);
-    /* Değişiklik Sonu */
+     background: linear-gradient(135deg, #94b5e7, #ffffff);
     color: #333;
     overflow: hidden; /* Animasyon sırasında kaydırma çubuklarını engelle */
 }
 
 /* Temel Neumorfik Stil (Kabartmalı görünüm) */
 .neumorphic {
-    border-radius: 20px;    
-    background: #e0e5ec;    
+    border-radius: 20px;
+    background: #e0e5ec;
     box-shadow:
         9px 9px 18px #a7abad, /* Daha doğal bir gölge */
         -9px -9px 18px #ffffff; /* Beyaz vurgu */
@@ -29,11 +27,17 @@ body {
     width: 450px; /* Büyük Genişlik */
     height: 650px; /* **Yüksekliği biraz daha artır** */
     padding: 30px; /* İç boşluğu ayarla */
-    border-radius: 25px;    
-    background: #e0e5ec;     
+    border-radius: 25px;
+    background: #e0e5ec; /* Temel zemin rengi */
+
+    /* GÜNCELLENDİ: Hem dıştan kabartmalı hem de içten basık görünüm */
     box-shadow:
-        12px 12px 24px #7fadf1, /* Yeni palete uygun koyu gölge */
-        -12px -12px 24px #a7abad; /* Yeni palete uygun açık gölge */
+        /* Dıştan kabartma gölgeleri */
+        12px 12px 24px #a0a7ad, /* Koyu dış gölge (sağ-alt) */
+        -12px -12px 24px #a0a7ad, /* Açık dış gölge/vurgu (sol-üst) */
+        /* İçten basık gölgeler (daha az yayılım ve opaklıkta) */
+        inset 5px 5px 10px rgba(164, 208, 236, 0.7), /* Koyu iç gölge (arka plan renginden türetilmiş) */
+        inset -5px -5px 10px rgba(164, 208, 236, 0.7); /* Açık iç gölge (beyazın daha az opak hali) */
     overflow: hidden; /* Geçiş animasyonu için gerekli */
     display: flex; /* İçindeki formları ortalamak için */
     justify-content: center;
@@ -59,9 +63,10 @@ body {
     /* Neumorfik stilini buraya uyguluyoruz */
     border-radius: 20px;
     background: #e0e5ec; /* Neumorfik derinlik için nötr bir zemin rengi */
+    
     box-shadow:
-        7px 7px 14px #a7abad, /* Yeni palete uygun koyu gölge */
-        -7px -7px 14px #7fadf1; /* Yeni palete uygun açık gölge */
+        inset 7px 7px 14px #b7cae6, /* Koyu iç gölge (sağ-alt) */
+        inset -7px -7px 14px #b7cae6; /* Açık iç gölge/vurgu (sol-üst) */
 }
 
 /* Başlangıçta Kayıt Formunu Gizle */
@@ -88,8 +93,8 @@ body {
     border-radius: 12px;
     background: #e0e5ec; /* Neumorfik derinlik için nötr bir zemin rengi */
     box-shadow:
-        inset 5px 5px 10px #a7abad, /* Yeni palete uygun koyu iç gölge */
-        inset -5px -5px 10px #a0a7ad; /* Yeni palete uygun açık iç gölge */
+        inset 5px 5px 10px #c1c9d6, /* Koyu iç gölge (sağ-alt) */
+        inset -5px -5px 10px #f5ffff; /* Açık iç gölge/vurgu (sol-üst) */
     color: #555;
 }
 
@@ -98,9 +103,10 @@ body {
 }
 
 .neumorphic-input:focus {
+    /* Fokus halindeki iç gölgeleri daha belirgin yapalım */
     box-shadow:
-        inset 4px 4px 8px #9da2a6, /* Fokus gölgeleri biraz daha belirgin */
-        inset -4px -4px 8px #f5ffff;
+        inset 4px 4px 8px #a7abad,
+        inset -4px -4px 8px #ffffff;
 }
 
 /* Buton Stili - Kabartmalı görünüm */
@@ -113,13 +119,14 @@ body {
     font-size: 1.2em;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 18px;    
-    background: linear-gradient(135deg, #7fadf1, #e0e5ec); 
-    color: #ffffff; 
-    
+    border-radius: 18px;
+    background: linear-gradient(135deg, #94b5e7, #e0e5ec);
+    color: #ffffff;
+
+    /* Butonlar dıştan kabartmalı kalmalı */
     box-shadow:
-        7px 7px 14px #a0a7ad, /* Butonun kendi renginden türetilmiş koyu gölge */
-        -7px -7px 14px #a0a7ad; /* Butonun kendi renginden türetilmiş açık gölge */
+        7px 7px 14px #a0a7ad, /* Koyu dış gölge */
+        -7px -7px 14px #ffffff; /* Açık dış gölge/vurgu */
 }
 
 .neumorphic-button:hover {
@@ -130,7 +137,7 @@ body {
 }
 
 .neumorphic-button:active {
-    /* Active durumunda iç gölge ve hafif dönüş */
+    /* Active durumunda iç gölge ve hafif dönüş (basık hissi) */
     box-shadow:
         inset 4px 4px 8px #6a95e0,
         inset -4px -4px 8px #90c2ff;
