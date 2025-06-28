@@ -6,8 +6,8 @@ body {
     min-height: 100vh;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Değişiklik Başlangıcı: Arkaplanı beyazdan açık maviye doğru degrade yap */
-    background: linear-gradient(135deg, #7fadf1, #a0a7ad); /* Beyazımsı gri ile açık mavi arasında yumuşak geçiş */
+    /* Değişiklik Başlangıcı: Arkaplanı belirtilen yeni degrade renkler */
+    background: linear-gradient(135deg, #7fadf1, #a0a7ad);
     /* Değişiklik Sonu */
     color: #333;
     overflow: hidden; /* Animasyon sırasında kaydırma çubuklarını engelle */
@@ -17,11 +17,11 @@ body {
 .neumorphic {
     border-radius: 20px;
     /* Değişiklik Başlangıcı: Arkaplanı genel body ile uyumlu hale getir */
-    background: #7fadf1; /* Beyazımsı gri */
+    background: #e0e5ec; /* Genel neumorfik elemanlar için daha nötr bir zemin */
     /* Değişiklik Sonu */
     box-shadow:
-        9px 9px 18px #7fadf1, /* Koyu gölgeyi açık griye çevirdik */
-        -9px -9px 18px #7fadf1; /* Açık gölgeyi beyaza sabitledik */
+        9px 9px 18px #a7abad, /* Daha doğal bir gölge */
+        -9px -9px 18px #ffffff; /* Beyaz vurgu */
     transition: all 0.3s ease;
 }
 
@@ -33,11 +33,11 @@ body {
     padding: 30px; /* İç boşluğu ayarla */
     border-radius: 25px;
     /* Değişiklik Başlangıcı: Arkaplanı genel body ile uyumlu hale getir */
-    background: #f0f2f5; /* Beyazımsı gri */
+    background: #e0e5ec; /* Neumorfik derinlik için nötr bir zemin rengi */
     /* Değişiklik Sonu */
     box-shadow:
-        12px 12px 24px #7fadf1, /* Koyu gölgeyi açık griye çevirdik */
-        -12px -12px 24px #a0a7ad; /* Açık gölgeyi beyaza sabitledik */
+        12px 12px 24px #7fadf1, /* Yeni palete uygun koyu gölge */
+        -12px -12px 24px #a7abad; /* Yeni palete uygun açık gölge */
     overflow: hidden; /* Geçiş animasyonu için gerekli */
     display: flex; /* İçindeki formları ortalamak için */
     justify-content: center;
@@ -53,7 +53,6 @@ body {
     padding: 30px;
     display: flex;
     flex-direction: column;
-    /* gap: 20px; yerine margin-bottom kullanarak daha fazla kontrol sağlayacağız. */
     align-items: center;
     width: 85%; /* Ana kapsayıcının %85'i kadar genişlik */
     max-width: 380px; /* Maksimum genişlik */
@@ -63,43 +62,38 @@ body {
 
     /* Neumorfik stilini buraya uyguluyoruz */
     border-radius: 20px;
-    /* Değişiklik Başlangıcı: Arkaplanı genel body ile uyumlu hale getir */
-    background: #f0f2f5; /* Beyazımsı gri */
-    /* Değişiklik Sonu */
+    background: #e0e5ec; /* Neumorfik derinlik için nötr bir zemin rengi */
     box-shadow:
-        7px 7px 14px #d1d9e6, /* Koyu gölgeyi açık griye çevirdik */
-        -7px -7px 14px #ffffff; /* Açık gölgeyi beyaza sabitledik */
+        7px 7px 14px #a7abad, /* Yeni palete uygun koyu gölge */
+        -7px -7px 14px #7fadf1; /* Yeni palete uygun açık gölge */
 }
 
 /* Başlangıçta Kayıt Formunu Gizle */
 #kayitFormu {
     opacity: 0; /* Saydam yap */
     pointer-events: none; /* Üzerine tıklanamaz yap */
-    /* Biraz küçültülmüş ve hafifçe yanlamasına kaydırılmış başlangıç pozisyonu */
     transform: translate(-50%, -50%) scale(0.9) translateX(50px);
 }
 
 .neumorphic-card h1 {
     font-size: 2em;
-    margin-bottom: 25px; /* Başlık altındaki boşluğu **azalttık** */
+    margin-bottom: 25px;
     color: #4b4b4b;
 }
 
 /* Giriş Alanları (Input) - Basık görünüm */
 .neumorphic-input {
-    width: calc(100% - 40px); /* Padding'i genişlikten çıkar */
-    padding: 18px 20px; /* Padding'i artır */
-    margin-bottom: 20px; /* **Inputlar arası boşluğu azalttık** */
+    width: calc(100% - 40px);
+    padding: 18px 20px;
+    margin-bottom: 20px;
     border: none;
     outline: none;
     font-size: 1.1em;
     border-radius: 12px;
-    /* Değişiklik Başlangıcı: Arkaplanı genel body ile uyumlu hale getir */
-    background: #f0f2f5; /* Beyazımsı gri */
-    /* Değişiklik Sonu */
+    background: #e0e5ec; /* Neumorfik derinlik için nötr bir zemin rengi */
     box-shadow:
-        inset 5px 5px 10px #d1d9e6, /* Koyu iç gölgeyi açık griye çevirdik */
-        inset -5px -5px 10px #ffffff; /* Açık iç gölgeyi beyaza sabitledik */
+        inset 5px 5px 10px #a7abad, /* Yeni palete uygun koyu iç gölge */
+        inset -5px -5px 10px #a0a7ad; /* Yeni palete uygun açık iç gölge */
     color: #555;
 }
 
@@ -109,40 +103,41 @@ body {
 
 .neumorphic-input:focus {
     box-shadow:
-        inset 4px 4px 8px #c1c9d6, /* Fokus gölgeleri biraz daha belirgin */
+        inset 4px 4px 8px #9da2a6, /* Fokus gölgeleri biraz daha belirgin */
         inset -4px -4px 8px #f5ffff;
 }
 
 /* Buton Stili - Kabartmalı görünüm */
 .neumorphic-button {
-    width: calc(100% - 40px); /* Padding'i genişlikten çıkar */
+    width: calc(100% - 40px);
     padding: 18px 20px;
-    margin-top: 15px; /* Buton üstündeki boşluk */
+    margin-top: 15px;
     border: none;
     outline: none;
     font-size: 1.2em;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 18px;
-    /* Değişiklik Başlangıcı: Arkaplanı genel body ile uyumlu hale getir */
-    background: #f0f2f5; /* Beyazımsı gri */
-    /* Değişiklik Sonu */
-    color: #4b4b4b;
+    border-radius: 18px;    
+    background: linear-gradient(135deg, #7fadf1, #e0e5ec); 
+    color: #ffffff; 
+    
     box-shadow:
-        7px 7px 14px #d1d9e6, /* Koyu gölgeyi açık griye çevirdik */
-        -7px -7px 14px #ffffff; /* Açık gölgeyi beyaza sabitledik */
+        7px 7px 14px #a0a7ad, /* Butonun kendi renginden türetilmiş koyu gölge */
+        -7px -7px 14px #a0a7ad; /* Butonun kendi renginden türetilmiş açık gölge */
 }
 
 .neumorphic-button:hover {
+    /* Hover durumunda gölgeleri hafifçe ayarlayalım */
     box-shadow:
-        4px 4px 8px #d1d9e6, /* Koyu gölgeyi açık griye çevirdik */
-        -4px -4px 8px #ffffff; /* Açık gölgeyi beyaza sabitledik */
+        4px 4px 8px #6a95e0,
+        -4px -4px 8px #90c2ff;
 }
 
 .neumorphic-button:active {
+    /* Active durumunda iç gölge ve hafif dönüş */
     box-shadow:
-        inset 4px 4px 8px #d1d9e6, /* Koyu iç gölgeyi açık griye çevirdik */
-        inset -4px -4px 8px #ffffff; /* Açık iç gölgeyi beyaza sabitledik */
+        inset 4px 4px 8px #6a95e0,
+        inset -4px -4px 8px #90c2ff;
     transform: translateY(2px);
 }
 
@@ -150,19 +145,19 @@ body {
 .neumorphic-card p {
     font-size: 1em;
     color: #666;
-    margin-top: 25px; /* **Link üstündeki boşluğu azalttık** */
+    margin-top: 25px;
     text-align: center;
 }
 
 .neumorphic-card p a {
-    color: #4CAF50;
+    color: #7fadf1; /* Yeni mavi link rengi */
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .neumorphic-card p a:hover {
-    color: #388E3C;
+    color: #6699ff; /* Mavi linkin hover hali */
 }
 
 /* Küçük ekranlar için responsive ayar */
@@ -174,7 +169,7 @@ body {
 
     .neumorphic-container {
         width: 95%;
-        height: auto; /* Yüksekliği otomatik ayarla */
+        height: auto;
         padding: 20px;
     }
 
@@ -182,6 +177,6 @@ body {
         width: 90%;
         max-width: none;
         padding: 25px 20px;
-        transform: translate(-50%, -50%) !important; /* Mobil görünümde animasyon transformlarını sıfırla */
+        transform: translate(-50%, -50%) !important;
     }
 }
