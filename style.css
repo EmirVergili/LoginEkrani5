@@ -6,7 +6,9 @@ body {
     min-height: 100vh;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #e0e5ec;
+    /* Değişiklik Başlangıcı: Arkaplanı beyazdan açık maviye doğru degrade yap */
+    background: linear-gradient(135deg, #7fadf1, #a0a7ad); /* Beyazımsı gri ile açık mavi arasında yumuşak geçiş */
+    /* Değişiklik Sonu */
     color: #333;
     overflow: hidden; /* Animasyon sırasında kaydırma çubuklarını engelle */
 }
@@ -14,10 +16,12 @@ body {
 /* Temel Neumorfik Stil (Kabartmalı görünüm) */
 .neumorphic {
     border-radius: 20px;
-    background: #e0e5ec;
+    /* Değişiklik Başlangıcı: Arkaplanı genel body ile uyumlu hale getir */
+    background: #7fadf1; /* Beyazımsı gri */
+    /* Değişiklik Sonu */
     box-shadow:
-        9px 9px 18px #a7abad,
-        -9px -9px 18px #ffffff;
+        9px 9px 18px #7fadf1, /* Koyu gölgeyi açık griye çevirdik */
+        -9px -9px 18px #7fadf1; /* Açık gölgeyi beyaza sabitledik */
     transition: all 0.3s ease;
 }
 
@@ -28,10 +32,12 @@ body {
     height: 650px; /* **Yüksekliği biraz daha artır** */
     padding: 30px; /* İç boşluğu ayarla */
     border-radius: 25px;
-    background: #e0e5ec;
+    /* Değişiklik Başlangıcı: Arkaplanı genel body ile uyumlu hale getir */
+    background: #f0f2f5; /* Beyazımsı gri */
+    /* Değişiklik Sonu */
     box-shadow:
-        12px 12px 24px #565d61,
-        -12px -12px 24px #565d61;
+        12px 12px 24px #7fadf1, /* Koyu gölgeyi açık griye çevirdik */
+        -12px -12px 24px #a0a7ad; /* Açık gölgeyi beyaza sabitledik */
     overflow: hidden; /* Geçiş animasyonu için gerekli */
     display: flex; /* İçindeki formları ortalamak için */
     justify-content: center;
@@ -57,10 +63,12 @@ body {
 
     /* Neumorfik stilini buraya uyguluyoruz */
     border-radius: 20px;
-    background: #e0e5ec;
+    /* Değişiklik Başlangıcı: Arkaplanı genel body ile uyumlu hale getir */
+    background: #f0f2f5; /* Beyazımsı gri */
+    /* Değişiklik Sonu */
     box-shadow:
-        7px 7px 14px #565d61,
-        -7px -7px 14px #565d61;
+        7px 7px 14px #d1d9e6, /* Koyu gölgeyi açık griye çevirdik */
+        -7px -7px 14px #ffffff; /* Açık gölgeyi beyaza sabitledik */
 }
 
 /* Başlangıçta Kayıt Formunu Gizle */
@@ -86,10 +94,12 @@ body {
     outline: none;
     font-size: 1.1em;
     border-radius: 12px;
-    background: #e0e5ec;
+    /* Değişiklik Başlangıcı: Arkaplanı genel body ile uyumlu hale getir */
+    background: #f0f2f5; /* Beyazımsı gri */
+    /* Değişiklik Sonu */
     box-shadow:
-        inset 5px 5px 10px #a7abad,
-        inset -5px -5px 10px #ffffff;
+        inset 5px 5px 10px #d1d9e6, /* Koyu iç gölgeyi açık griye çevirdik */
+        inset -5px -5px 10px #ffffff; /* Açık iç gölgeyi beyaza sabitledik */
     color: #555;
 }
 
@@ -99,7 +109,7 @@ body {
 
 .neumorphic-input:focus {
     box-shadow:
-        inset 4px 4px 8px #9da2a6,
+        inset 4px 4px 8px #c1c9d6, /* Fokus gölgeleri biraz daha belirgin */
         inset -4px -4px 8px #f5ffff;
 }
 
@@ -114,23 +124,25 @@ body {
     font-weight: bold;
     cursor: pointer;
     border-radius: 18px;
-    background: #e0e5ec;
+    /* Değişiklik Başlangıcı: Arkaplanı genel body ile uyumlu hale getir */
+    background: #f0f2f5; /* Beyazımsı gri */
+    /* Değişiklik Sonu */
     color: #4b4b4b;
     box-shadow:
-        7px 7px 14px #a7abad,
-        -7px -7px 14px #ffffff;
+        7px 7px 14px #d1d9e6, /* Koyu gölgeyi açık griye çevirdik */
+        -7px -7px 14px #ffffff; /* Açık gölgeyi beyaza sabitledik */
 }
 
 .neumorphic-button:hover {
     box-shadow:
-        4px 4px 8px #a7abad,
-        -4px -4px 8px #ffffff;
+        4px 4px 8px #d1d9e6, /* Koyu gölgeyi açık griye çevirdik */
+        -4px -4px 8px #ffffff; /* Açık gölgeyi beyaza sabitledik */
 }
 
 .neumorphic-button:active {
     box-shadow:
-        inset 4px 4px 8px #a7abad,
-        inset -4px -4px 8px #ffffff;
+        inset 4px 4px 8px #d1d9e6, /* Koyu iç gölgeyi açık griye çevirdik */
+        inset -4px -4px 8px #ffffff; /* Açık iç gölgeyi beyaza sabitledik */
     transform: translateY(2px);
 }
 
